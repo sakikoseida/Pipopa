@@ -31,6 +31,8 @@
 
 package com.toy.anagrams.lib;
 
+import java.util.Random;
+
 /**
  * Implementation of the logic for the Anagram Game application.
  */
@@ -160,7 +162,23 @@ final class StaticWordLibrary extends WordLibrary {
      * @return word at that index in its scrambled form
      */
     public String getScrambledWord(int idx) {
-        return SCRAMBLED_WORD_LIST[idx];
+        // return SCRAMBLED_WORD_LIST[idx];
+    	char[] c = WORD_LIST[idx].toCharArray();
+    	int times = 3; //ƒVƒƒƒbƒtƒ‹‰ñ”
+    	for(int i=0; i<times; i++){
+    		Random rand = new Random();
+    		int x = rand.nextInt(c.length);
+    		int y = rand.nextInt(c.length);
+    		while(x==y) y = rand.nextInt(c.length);
+    		char tmp = c[x];
+    		c[x] = c[y];
+    		c[y] = tmp;
+    	}
+    	String s = "";
+    	for(int i=0; i<c.length; i++){
+    		s += c[i];
+    	}
+    	return s;
     }
 
     /**
