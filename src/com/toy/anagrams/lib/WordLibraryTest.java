@@ -57,7 +57,7 @@ public class WordLibraryTest extends TestCase {
     public void testIsCorrect() {
         for (int i = 0; i < wordLibrary.getSize(); i++) {
             String clearWord = wordLibrary.getWord(i);
-            String scrambledWord = wordLibrary.getScrambledWord(i);
+            String scrambledWord = wordLibrary.getScrambledWord(i,1);
             assertTrue("Scrambled word \"" + scrambledWord +
                        "\" at index: " + i +
                        " does not represent the word \"" + clearWord + "\"",

@@ -161,10 +161,11 @@ final class StaticWordLibrary extends WordLibrary {
      * @param idx index of required word
      * @return word at that index in its scrambled form
      */
-    public String getScrambledWord(int idx) {
+    public String getScrambledWord(int idx, int lvl) {
         // return SCRAMBLED_WORD_LIST[idx];
     	char[] c = WORD_LIST[idx].toCharArray();
-    	int times = 3; //シャッフル回数
+    	int times = 3 * (lvl+1); //シャッフル回数
+    	//System.out.println(times);
     	for(int i=0; i<times; i++){
     		Random rand = new Random();
     		int x = rand.nextInt(c.length);
